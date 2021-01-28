@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead" style="font-weight: bold;"></p>
+    </header>
+    <div class="container">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">9:00</span>
+        <input type="text" id="nine" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnNine" onclick="submitValue()">Save</button>
+      </div> <!--end of 9 block -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">10:00</span>
+        <input type="text" id="ten" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnTen" onclick="submitValue()">Save</button>
+      </div> <!--end of 10 block -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">11:00</span>
+        <input type="text" id="eleven" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnEleven" onclick="submitValue()">Save</button>
+      </div> <!--end of 11 block -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">12:00</span>
+        <input type="text" id="twelve" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnTwelve" onclick="submitValue()">Save</button>
+      </div> <!--end of 12 block -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">13:00</span>
+        <input type="text" id="thirteen" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnThirteen" onclick="submitValue()">Save</button>
+      </div> <!--end of 13 block -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">14:00</span>
+        <input type="text" id="fourteen" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnFourteen" onclick="submitValue()">Save</button>
+      </div> <!--end of 14 block -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">15:00</span>
+        <input type="text" id="fifteen" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnFifteen" onclick="submitValue()">Save</button>
+      </div> <!--end of 15 block -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">16:00</span>
+        <input type="text" id="sixteen" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnSixteen" onclick="submitValue()">Save</button>
+      </div> <!--end of 16 block -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="addon-wrapping">17:00</span>
+        <input type="text" id="seventeen" class="form-control" placeholder="Recipient's username" >
+        <button class="btn btn-primary" type="button" id="btnSeventeen" onclick="submitValue()">Save</button>
+      </div> <!--end of 17 block -->
+      <!-- Timeblocks go here -->
+    </div> <!--end of container-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  
+    <script>
+      
+
+      //if (moment().format('h') === "12")
+
+      var timeNow = "9"
+      if (timeNow === "9"){
+        document.querySelector('#nine').style.backgroundColor = "#78c5ee";
+        document.querySelector('#ten').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#eleven').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#twelve').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#thirteen').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#fourteen').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#fifteen').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#sixteen').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#seventeen').style.backgroundColor = "#bdf4e0";
+      }
+      if (timeNow === "10"){
+        document.querySelector('#nine').style.backgroundColor = "#f6b2b2";
+        document.querySelector('#ten').style.backgroundColor = "#78c5ee";
+        document.querySelector('#eleven').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#twelve').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#thirteen').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#fourteen').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#fifteen').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#sixteen').style.backgroundColor = "#bdf4e0";
+        document.querySelector('#seventeen').style.backgroundColor = "#bdf4e0";
+      }
+
+
+
+
+
+
+      //checks if localStorage.tasks exists
+      if(localStorage.getItem("tasks") === null)
+      {
+
+        var tasks = {nine: "", ten:"", eleven: "", twelve: "", thirteen: "", fourteen: "", fifteen: "", sixteen: "", seventeen: ""}
+
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      }
+
+      
+      // stores the current values of tasks object by retrieving it from localStorage tasks
+      var currentTasks = JSON.parse(localStorage.getItem('tasks'));
+
+      // Take the value for each time block from localStorage and add the value to the text input even after reloading the page
+      document.querySelector('#nine').value = currentTasks.nine;
+      document.querySelector('#ten').value = currentTasks.ten;
+      document.querySelector('#eleven').value = currentTasks.eleven;
+      document.querySelector('#twelve').value = currentTasks.twelve;
+      document.querySelector('#thirteen').value = currentTasks.thirteen;
+      document.querySelector('#fourteen').value = currentTasks.fourteen;
+      document.querySelector('#fifteen').value = currentTasks.fifteen;
+      document.querySelector('#sixteen').value = currentTasks.sixteen;
+      document.querySelector('#seventeen').value = currentTasks.seventeen;
+
+
+      // function updateData(event){
+      //   var inputName = console.log(event.target.id);
+      //   if(inputName ==="nine"){
+      //     tasks[0] = 
+      //     document.querySelector("#"+inputName).value = tasks[0];
+      //   }
+      // }
+
+      // var tasks = [];
+
+      function submitValue(){
+
+        var buttonID = event.target.id;
+        if(buttonID === "btnNine"){
+          var tempValue = document.querySelector('#nine').value;
+          currentTasks.nine = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        else  if(buttonID === "btnTen"){
+          var tempValue = document.querySelector('#ten').value;
+          currentTasks.ten = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        else if(buttonID === "btnEleven"){
+          var tempValue = document.querySelector('#eleven').value;
+          currentTasks.eleven = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        else if(buttonID === "btnTwelve"){
+          var tempValue = document.querySelector('#twelve').value;
+          currentTasks.twelve = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        else if(buttonID === "btnThirteen"){
+          var tempValue = document.querySelector('#thirteen').value;
+          currentTasks.thirteen = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        else if(buttonID === "btnFourteen"){
+          var tempValue = document.querySelector('#fourteen').value;
+          currentTasks.fourteen = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        else if(buttonID === "btnFifteen"){
+          var tempValue = document.querySelector('#fifteen').value;
+          currentTasks.fifteen = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        else if(buttonID === "btnSixteen"){
+          var tempValue = document.querySelector('#sixteen').value;
+          currentTasks.sixteen = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        else if(buttonID === "btnSeventeen"){
+          var tempValue = document.querySelector('#seventeen').value;
+          currentTasks.seventeen = tempValue
+          localStorage.setItem('tasks', JSON.stringify(currentTasks));
+          
+        }
+        
+        // var txt9 = document.querySelector('#nine').value;
+        // // event.preventDefault();
+        // //return txt9;
+        // tasks[0] = txt9;
+        // console.log(txt9);
+      }
+
+
+      document.querySelector('#currentDay').innerHTML = `Today is ${moment().format('MMMM Do YYYY')}`;
+    </script>
+  </body>
+</html>
